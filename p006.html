@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Virtual Escape Room</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      background: linear-gradient(45deg, #FF9D6C, #BB6BD9, #7E5BEF, #44A2D5, #9ACD32, #FF6347, #87CEEB, #FF8C00, #8A2BE2, #20B2AA, #9932CC, #32CD32, #FF4500, #00FA9A, #8B4513, #4682B4, #FF1493, #2E8B57, #B22222, #7B68EE, #008080, #FFA07A, #4169E1, #CD5C5C, #556B2F, #8B008B, #ADFF2F, #9932CC, #8B0000
+      );
+      background-size: cover;
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .puzzle {
+      display: block;
+    }
+
+    .puzzle p {
+      margin: 0;
+      margin-bottom: 20px;
+    }
+
+    .puzzle input {
+      padding: 10px;
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    .puzzle button {
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.2s;
+    }
+
+    .puzzle button:hover {
+      background-color: #45a049;
+    }
+
+    #invitationMessage a {
+        color: #fff;
+        text-decoration: underline;
+        margin-left: 10px; /* Adjust the margin as needed */
+      }
+      
+
+    @keyframes blink {
+        0%, 100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0;
+        }
+      }
+      
+      @keyframes fadeInOut {
+        0%, 100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0;
+        }
+      }
+      
+
+      #finalPuzzle {
+        display: none;
+        animation: blink 1s infinite alternate;
+      }
+      
+      #invitationMessage {
+        animation: fadeInOut 4s linear;
+      }
+      
+  </style>
+</head>
+<body>
+  <div class="puzzle" id="puzzle1">
+    <p>Puzzle 1: What is your name?</p>
+    <input type="text" id="answer1" placeholder="Your answer">
+    <button onclick="checkAnswer('answer1', 'puzzle2')">Submit</button>
+  </div>
+
+  <div class="puzzle" id="puzzle2" style="display: none;">
+    <p>Puzzle 2: What is the full form of CP in Delhi? </p>
+    <input type="text" id="answer2" placeholder="Your answer">
+    <button onclick="checkAnswer('answer2', 'puzzle3')">Submit</button>
+  </div>
+
+  <div class="puzzle" id="puzzle3" style="display: none;">
+    <p>Puzzle 3: What will be the next version of android according to you </p>
+    <input type="text" id="answer3" placeholder="Your answer">
+    <button onclick="checkAnswer('answer3', 'puzzle4')">Submit</button>
+  </div>
+
+  <div class="puzzle" id="puzzle4" style="display: none;">
+    <p>Puzzle 4: how many MB does 1 Gb have ? </p> 
+    <input type="text" id="answer4" placeholder="Your answer">
+    <button onclick="checkAnswer('answer4', 'puzzle5')">Submit</button>
+  </div>
+
+  <div class="puzzle" id="puzzle5" style="display: none;">
+    <p>Puzzle 5: What will you prefer action movie or romantic movie ?</p>
+    <input type="text" id="answer5" placeholder="Your answer">
+    <button onclick="checkAnswer('answer5', 'finalPuzzle')">Submit</button>
+  </div>
+
+  <div id="finalPuzzle" style="display: none;">
+    <p id="invitationMessage">
+    Congratulations! You've unlocked the prize worth ruby diamonds :  <strong> Would you like to go out with me on a movie or hangout with me in CP as you know it very well 😉💓💓🥰 ?</strong>
+    <a href="https://wa.me/918920371054?text=ok%20baby%20come%20on%20lets%20go%20tomorrow" target="_blank">To claim the prize click Here</a>
+    </p>
+  </div>
+
+  <script>
+    function checkAnswer(answerId, nextPuzzleId) {
+      // Accept any answer as correct for the first question
+      const userAnswer = document.getElementById(answerId).value.trim();
+      
+      document.getElementById(answerId).disabled = true;
+      document.getElementById(answerId).style.backgroundColor = '#b3ffb3';
+      document.getElementById(answerId).nextElementSibling.style.display = 'none';
+      document.getElementById(nextPuzzleId).style.display = 'block';
+    }
+  </script>
+</body>
+</html>

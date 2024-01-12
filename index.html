@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Virtual Escape Room</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .running-animation {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: linear-gradient(45deg, #FF9D6C, #BB6BD9, #7E5BEF, #44A2D5, #9ACD32, #FF6347, #87CEEB, #FF8C00, #8A2BE2, #20B2AA, #9932CC, #32CD32, #FF4500, #00FA9A, #8B4513, #4682B4, #FF1493, #2E8B57, #B22222, #7B68EE, #008080, #FFA07A, #4169E1, #CD5C5C, #556B2F, #8B008B, #ADFF2F, #9932CC, #8B0000
+      );
+      background-size: 400% 400%;
+      animation: gradient 5s infinite;
+    }
+
+    @keyframes gradient {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    h1, p {
+      margin: 0;
+    }
+
+    h1 {
+      padding: 20px 0;
+    }
+
+    p {
+      margin-bottom: 30px;
+    }
+
+    button {
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.2s;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <div class="running-animation"></div>
+  <h1>Welcome to the Virtual Escape Room!</h1>
+  <p></p>
+  <p>Can you solve the puzzles to reveal a special prize</p>
+  <p>The prize value is in diamonds</p>
+  
+  <button onclick="startEscapeRoom()">Start Escape Room</button>
+  
+  <script>
+    function startEscapeRoom() {
+      // Redirect to p006.html when the button is clicked
+      window.location.href = 'p006.html';
+    }
+  </script>
+</body>
+</html>
